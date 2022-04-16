@@ -1,0 +1,13 @@
+{
+    "Set_Max": {
+        "Time": "",
+        "Conn": ""
+    },
+    "Commands": {
+        "UDP": "python3 udp.py [HOST] [PORT] [TIME]",
+        "OVH": "./ovh [HOST] [PORT] [TIME]",
+        "BYPASS": "./bypass [HOST] [PORT] [TIME]",
+        "HTTP": "node http.js [HOST] [PORT] [TIME]",
+        "HTTPS": "node scp-https.js [HOST] [PORT] [TIME]"
+    }
+}
