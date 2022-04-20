@@ -21,8 +21,9 @@ pub struct App {
 									
 		methods 		map[string]string 	= { 'UDP': 'screen -dm python h.py ',
 												'GAME': 'screen -dm ./game ',
-												'BYPASS': 'screen -dm ./bypass '
-												'OVH': 'screen -dm ./ovh '
+												'BYPASS': 'screen -dm ./bypass ',
+												'OVH': 'screen -dm ./ovh ',
+												'SAMP': 'screen -dm python3 samp.py '
 												}
 }
 
