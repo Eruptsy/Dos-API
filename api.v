@@ -7,6 +7,8 @@
 @github: https://github.com/Eruptsy
 
 This file can be used by itself. The whole API is coded in here as of right now but will be advanced later
+
+This API has no protection so use at your own risk!
 */
 
 import os
